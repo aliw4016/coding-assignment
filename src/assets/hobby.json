@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "hobby":"Playing Cricket",
+     "passion":"High",
+     "year":"1993"
+  },
+  {
+    "id": 2,
+     "hobby":"Watching TV",
+       "passion":"Medium",
+        "year":"1997"
+  },
+  {
+    "id": 3,
+     "hobby":"Reading Books",
+      "passion":"Low",
+      "year":"2000"
+  },
+   {
+    "id": 4,
+    "hobby":"Exercing",
+    "passion":"High",
+     "year":"2005"
+  },
+   {
+    "id": 5,
+    "hobby":"gardening",
+     "passion":"Medium",
+      "year":"2015"
+
+  }
+   
+]

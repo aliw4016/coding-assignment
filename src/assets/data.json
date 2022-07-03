@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "Waqar",
+    "action":"view"
+  },
+  {
+    "id": 2,
+    "name": "Waqas",
+     "action":"view"
+  },
+  {
+    "id": 3,
+    "name": "Ali",
+     "action":"view"
+   
+  },
+   {
+    "id": 4,
+    "name": "Umer",
+     "action":"view"
+  },
+   {
+    "id": 5,
+    "name": "Ibrahim",
+     "action":"view"
+   
+
+  }
+   
+]
