@@ -11,10 +11,12 @@
                     </v-btn>
                 </div>
                 <v-data-table :headers="headers" :items="users" class="mt-5" :search="search">
-                    <template v-slot:[`item.view`]="{ item }">
-                        <v-btn color="success" @click="handleClick(item.id)">
-                            View
-                        </v-btn>
+                     <template v-slot:item="{ item }">
+                        <tr @click="handleClick(item.id) ">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            
+                        </tr>
                     </template>
                 </v-data-table>
             </div>
@@ -38,10 +40,17 @@
                     </div>
                 </div>
                 <v-data-table :headers="Hobbyheaders" :items="hobby" class="mt-5" :search="searchHobby">
-                    <template v-slot:[`item.delete`]="{ item }">
-                        <v-btn color="error" @click="deleteHobby(item.id)">
-                            Delete
-                        </v-btn>
+                    <template v-slot:item="{ item }">
+                        <tr v-if="item.status">
+                            <td>{{item.passion}}</td>
+                            <td>{{item.hobby}}</td>
+                            <td>{{item.year}}</td>
+                            <td>
+                                <v-btn color="error" @click="deleteHobby(item.id)">
+                                    Delete
+                                </v-btn>
+                            </td>
+                        </tr>
                     </template>
                 </v-data-table>
             </div>
@@ -59,9 +68,6 @@ export default {
     data() {
         return {
             Hobbyheaders: [{
-                    text: "Sr.No",
-                    value: "id",
-                }, {
                     text: "Passion",
                     value: "passion",
                 },
@@ -86,17 +92,13 @@ export default {
                     text: "Name",
                     value: "name",
                 },
-                {
-                    text: "Action",
-                    value: "view",
-                },
 
             ],
             search: '',
             passion: ['High', 'Medium', 'Low'],
             searchHobby: '',
-            users: usersData,
-            hobby: hobbyData,
+            users: [],
+            hobby: [],
             userid: '',
             name: "",
             year: "",
@@ -107,25 +109,58 @@ export default {
     methods: {
         handleClick(id) {
             this.userid = id;
-            this.hobby = hobbyData.filter((item) => item.id == this.userid);
+            this.hobby.forEach(hobby => {
+                hobby.status = false;
+                if (hobby.user_id == id) {
+                    hobby.status = true;
+                }
+            })
+            // this.hobby = hobbyData.filter((item) => item.id == this.userid);
+
         },
         addUser() {
+            this.userid =  this.users.length + 1;
             this.users.push({
-                id: this.users.length + 1,
+                id: this.userid,
                 name: this.name,
                 action: 'view'
             });
         },
         addHobby() {
-            this.hobby = hobbyData;
-            this.hobby.push({
-                id: this.hobby.length + 1,
-                passion: this.selectedPassion,
-                hobby: this.hobbyName,
-                year: this.year,
-                action: 'delete'
+            if (this.userid) {
+                this.hobby.push({
+                    id: this.hobby.length + 1,
+                    passion: this.selectedPassion,
+                    hobby: this.hobbyName,
+                    year: this.year,
+                    status: true,
+                    user_id: this.userid,
+                    action: 'delete'
 
-            });
+                });
+            }
+            else
+            {
+                swal({
+                    title: "User Not Selected",
+                    text: "Please select user first!",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: false
+                })
+                // .then((willDelete) => {
+                //     if (willDelete) {
+                //         this.hobby = this.hobby.filter((item) => item.id != id);
+                //         // this.hobby.splice(this.hobby.indexOf(id), 1);
+                //         swal("Your Hobby Book has been deleted!", {
+                //             icon: "success",
+                //         });
+                //     } else {
+                //         swal("Your  file is safe!");
+                //     }
+                // });
+            }
+
         },
         deleteHobby(id) {
             swal({
@@ -137,7 +172,8 @@ export default {
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        this.hobby.splice(this.hobby.indexOf(id), 1);
+                        this.hobby = this.hobby.filter((item) => item.id != id);
+                        // this.hobby.splice(this.hobby.indexOf(id), 1);
                         swal("Your Hobby Book has been deleted!", {
                             icon: "success",
                         });
@@ -147,14 +183,15 @@ export default {
                 });
 
         },
-        deleteDialog() {
 
-        }
     },
-    mounted() {
-        this.hobby = [];
 
-    }
+    mounted() {
+        this.hobby = hobbyData;
+        this.users = usersData;
+
+    },
+
 }
 </script>
 
@@ -172,5 +209,8 @@ export default {
 
 .shadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.custom-highlight-row{
+  background-color: pink
 }
 </style>

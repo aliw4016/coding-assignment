@@ -3,32 +3,57 @@
     "id": 1,
     "hobby":"Playing Cricket",
      "passion":"High",
-     "year":"1993"
+     "year":"1993",
+     "status":false,
+     "user_id":1
   },
   {
     "id": 2,
      "hobby":"Watching TV",
        "passion":"Medium",
-        "year":"1997"
+        "year":"1997",
+        "status":false,
+         "user_id":1
   },
   {
     "id": 3,
      "hobby":"Reading Books",
       "passion":"Low",
-      "year":"2000"
+      "year":"2000",
+      "status":false,
+       "user_id":2
   },
    {
     "id": 4,
     "hobby":"Exercing",
     "passion":"High",
-     "year":"2005"
+     "year":"2005",
+     "status":false,
+      "user_id":2
+  },
+   {
+    "id": 5,
+    "hobby":"gardening",
+     "passion":"Low",
+      "year":"2016",
+      "status":false,
+       "user_id":3
   },
    {
     "id": 5,
     "hobby":"gardening",
      "passion":"Medium",
-      "year":"2015"
-
+      "year":"2017",
+      "status":false,
+       "user_id":4
+  },
+   {
+    "id": 5,
+    "hobby":"gardening",
+     "passion":"High",
+      "year":"2016",
+      "status":false,
+       "user_id":5
   }
    
 ]

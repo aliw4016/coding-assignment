@@ -1,29 +1,24 @@
 [
   {
     "id": 1,
-    "name": "Waqar",
-    "action":"view"
+    "name": "Waqar"
   },
   {
     "id": 2,
-    "name": "Waqas",
-     "action":"view"
+    "name": "Waqas"
   },
   {
     "id": 3,
-    "name": "Ali",
-     "action":"view"
+    "name": "Ali"
    
   },
    {
     "id": 4,
-    "name": "Umer",
-     "action":"view"
+    "name": "Umer"
   },
    {
     "id": 5,
-    "name": "Ibrahim",
-     "action":"view"
+    "name": "Ibrahim"
    
 
   }
