@@ -7,7 +7,7 @@
       class="d-flex justify-content-center"
     >
     <div>
-    <h3 > Coding Assignment</h3>
+    <h3 > CODING ASSIGNMENT</h3>
     </div>
     </v-app-bar>
 
