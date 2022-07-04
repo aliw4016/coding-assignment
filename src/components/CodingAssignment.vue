@@ -115,7 +115,6 @@ export default {
                     hobby.status = true;
                 }
             })
-            // this.hobby = hobbyData.filter((item) => item.id == this.userid);
 
         },
         addUser() {
@@ -146,17 +145,6 @@ export default {
                     buttons: true,
                     dangerMode: false
                 })
-                // .then((willDelete) => {
-                //     if (willDelete) {
-                //         this.hobby = this.hobby.filter((item) => item.id != id);
-                //         // this.hobby.splice(this.hobby.indexOf(id), 1);
-                //         swal("Your Hobby Book has been deleted!", {
-                //             icon: "success",
-                //         });
-                //     } else {
-                //         swal("Your  file is safe!");
-                //     }
-                // });
             }
 
         },
@@ -198,18 +186,11 @@ export default {
     padding: 15px;
     background: var(--vs-theme-layout);
     border-radius: 20px;
-    /* background: rgba( 255, 255, 255, 0.4 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 
 .shadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
-.custom-highlight-row {
-    background-color: pink
-}
+
 </style>
