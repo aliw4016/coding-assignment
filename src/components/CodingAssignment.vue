@@ -5,17 +5,17 @@
             <div class="col-lg-5">
                 <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
                 <div class="d-flex align-items-center mt-5">
-                    <v-text-field v-model="name" label="Name" dense outlined hide-details></v-text-field>
+                    <v-text-field v-model="name" label="Name"  dense outlined hide-details required></v-text-field>
                     <v-btn color="primary" class=" ml-5" @click="addUser">
                         Add
                     </v-btn>
                 </div>
                 <v-data-table :headers="headers" :items="users" class="mt-5" :search="search">
-                     <template v-slot:item="{ item }">
-                        <tr @click="handleClick(item.id) ">
+                    <template v-slot:item="{ item }">
+                        <tr @click="viewHobbyList(item.id) ">
                             <td>{{item.id}}</td>
                             <td>{{item.name}}</td>
-                            
+
                         </tr>
                     </template>
                 </v-data-table>
@@ -107,7 +107,7 @@ export default {
         }
     },
     methods: {
-        handleClick(id) {
+        viewHobbyList(id) {
             this.userid = id;
             this.hobby.forEach(hobby => {
                 hobby.status = false;
@@ -119,7 +119,7 @@ export default {
 
         },
         addUser() {
-            this.userid =  this.users.length + 1;
+            this.userid = this.users.length + 1;
             this.users.push({
                 id: this.userid,
                 name: this.name,
@@ -138,9 +138,7 @@ export default {
                     action: 'delete'
 
                 });
-            }
-            else
-            {
+            } else {
                 swal({
                     title: "User Not Selected",
                     text: "Please select user first!",
@@ -210,7 +208,8 @@ export default {
 .shadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.custom-highlight-row{
-  background-color: pink
+
+.custom-highlight-row {
+    background-color: pink
 }
 </style>
